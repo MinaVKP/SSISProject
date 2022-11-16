@@ -1,0 +1,1900 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/11/2022 11:27:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-34FHAUTJ"
+  DTS:CreatorName="LAPTOP-34FHAUTJ\priya"
+  DTS:DTSID="{964BFCB4-BD10-4F77-9A1E-C84B47AAA864}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package2"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{8ED1C0D9-7CA1-4507-B7FA-FE0F2E0FA6CF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.AdventureWorks2019]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3DCE1D8F-DC0D-4AD1-932F-E1BA5AFF6A89}"
+      DTS:ObjectName="LAPTOP-34FHAUTJ\MSSQLSERVER01.AdventureWorks2019">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-34FHAUTJ\MSSQLSERVER01;Initial Catalog=AdventureWorks2019;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6DA1FEB2-399B-4DEC-A55D-FB13126820C9}"
+      DTS:ObjectName="LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-34FHAUTJ\MSSQLSERVER01;Initial Catalog=DestinationDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AFE84B39-8929-494F-B68E-0E448DDA3A9F}"
+      DTS:ObjectName="LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-34FHAUTJ\MSSQLSERVER01;Initial Catalog=DestinationDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BF072144-60F9-4A2E-B702-0F34C6141DFE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ErrorCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{733FF8C4-D8F3-414E-B04C-3F18A2BA0589}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="uvSkippedCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7C6D3DC4-C92A-422B-904D-62C2AB42D6D5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="uvSourceCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{13B6C65D-A781-40A6-A445-3B7616090F00}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="uvSuccessCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT ETL Process Implementation"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3df22f47-483b-496a-a14e-3d2a5b746ad4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT ETL Process Implementation"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT ETL Process Implementation\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT ETL Process Implementation\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT ETL Process Implementation\Conditional Split.Inputs[Conditional Split Input].Columns[AddressID]"
+                      cachedDataType="i4"
+                      cachedName="AddressID"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT ETL Process Implementation\Conditional Split.Outputs[AddressIDGT10K]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="AddressIDGT10K"
+                  synchronousInputId="Package\DFT ETL Process Implementation\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressID]} &gt; 10000</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">AddressID &gt; 10000</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT ETL Process Implementation\Conditional Split.Outputs[AddressIDLTE10K]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="AddressIDLTE10K"
+                  synchronousInputId="Package\DFT ETL Process Implementation\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT ETL Process Implementation\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DFT ETL Process Implementation\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT ETL Process Implementation\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT ETL Process Implementation\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT ETL Process Implementation\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT ETL Process Implementation\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT ETL Process Implementation\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT ETL Process Implementation\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\Derived Column.Outputs[Derived Column Output].Columns[LastExecuted]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT ETL Process Implementation\Derived Column.Outputs[Derived Column Output].Columns[LastExecuted]"
+                      name="LastExecuted"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT ETL Process Implementation\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT ETL Process Implementation\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT ETL Process Implementation\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT ETL Process Implementation\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT ETL Process Implementation\Failed RowCount"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Failed RowCount">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::ErrorCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT ETL Process Implementation\Failed RowCount.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT ETL Process Implementation\Failed RowCount.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT ETL Process Implementation\Failed RowCount.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT ETL Process Implementation\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[OptimizedPersonAddress]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">CREATE TABLE [OptimizedPersonAddress] (
+    [AddressID] int,
+    [AddressLine1] nvarchar(60),
+    [AddressLine2] nvarchar(60),
+    [City] nvarchar(30),
+    [StateProvinceID] int,
+    [PostalCode] nvarchar(15),
+    [SpatialLocation] varbinary(max),
+    [rowguid] uniqueidentifier,
+    [ModifiedDate] datetime,
+    [LastExecuted] datetime
+)</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT ETL Process Implementation\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AddressID]"
+                      cachedDataType="i4"
+                      cachedName="AddressID"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressID]"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressID]" />
+                    <inputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AddressLine1]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="AddressLine1"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine1]"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine1]" />
+                    <inputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AddressLine2]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="AddressLine2"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine2]"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine2]" />
+                    <inputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="City"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StateProvinceID]"
+                      cachedDataType="i4"
+                      cachedName="StateProvinceID"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateProvinceID]"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceID]" />
+                    <inputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PostalCode]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="PostalCode"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalCode]"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCode]" />
+                    <inputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SpatialLocation]"
+                      cachedDataType="image"
+                      cachedName="SpatialLocation"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SpatialLocation]"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[SpatialLocation]" />
+                    <inputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rowguid]"
+                      cachedDataType="guid"
+                      cachedName="rowguid"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rowguid]"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]" />
+                    <inputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ModifiedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]" />
+                    <inputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastExecuted]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LastExecuted"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastExecuted]"
+                      lineageId="Package\DFT ETL Process Implementation\Derived Column.Outputs[Derived Column Output].Columns[LastExecuted]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressID]"
+                      dataType="i4"
+                      name="AddressID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine1]"
+                      dataType="wstr"
+                      length="60"
+                      name="AddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine2]"
+                      dataType="wstr"
+                      length="60"
+                      name="AddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="30"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateProvinceID]"
+                      dataType="i4"
+                      name="StateProvinceID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PostalCode]"
+                      dataType="wstr"
+                      length="15"
+                      name="PostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SpatialLocation]"
+                      dataType="image"
+                      name="SpatialLocation" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastExecuted]"
+                      dataType="dbTimeStamp"
+                      name="LastExecuted" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT ETL Process Implementation\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT ETL Process Implementation\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[Person].[Address]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT ETL Process Implementation\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.AdventureWorks2019]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.AdventureWorks2019]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressID]"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressID]"
+                      name="AddressID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressLine1]"
+                      length="60"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine1]"
+                      name="AddressLine1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressLine2]"
+                      length="60"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[AddressLine2]"
+                      name="AddressLine2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="30"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateProvinceID]"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[StateProvinceID]"
+                      name="StateProvinceID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                      length="15"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                      name="PostalCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[SpatialLocation]"
+                      dataType="image"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SpatialLocation]"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[SpatialLocation]"
+                      name="SpatialLocation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]"
+                      name="rowguid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressID]"
+                      dataType="i4"
+                      name="AddressID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressLine1]"
+                      dataType="wstr"
+                      length="60"
+                      name="AddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AddressLine2]"
+                      dataType="wstr"
+                      length="60"
+                      name="AddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="30"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StateProvinceID]"
+                      dataType="i4"
+                      name="StateProvinceID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                      dataType="wstr"
+                      length="15"
+                      name="PostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SpatialLocation]"
+                      dataType="image"
+                      name="SpatialLocation" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressID]"
+                      dataType="i4"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressID]"
+                      name="AddressID" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressLine1]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressLine1]"
+                      name="AddressLine1" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressLine2]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AddressLine2]"
+                      name="AddressLine2" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateProvinceID]"
+                      dataType="i4"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StateProvinceID]"
+                      name="StateProvinceID" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                      name="PostalCode" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SpatialLocation]"
+                      dataType="image"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SpatialLocation]"
+                      name="SpatialLocation" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                      dataType="guid"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                      name="rowguid" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT ETL Process Implementation\Skipped Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Skipped Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::uvSkippedCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT ETL Process Implementation\Skipped Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT ETL Process Implementation\Skipped Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT ETL Process Implementation\Skipped Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT ETL Process Implementation\Source Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Source Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::uvSourceCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT ETL Process Implementation\Source Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT ETL Process Implementation\Source Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT ETL Process Implementation\Source Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT ETL Process Implementation\Success RowCount"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="Success RowCount">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::uvSuccessCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT ETL Process Implementation\Success RowCount.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT ETL Process Implementation\Success RowCount.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT ETL Process Implementation\Success RowCount.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT ETL Process Implementation.Paths[AddressIDGT10K]"
+              endId="Package\DFT ETL Process Implementation\Success RowCount.Inputs[Row Count Input 1]"
+              name="AddressIDGT10K"
+              startId="Package\DFT ETL Process Implementation\Conditional Split.Outputs[AddressIDGT10K]" />
+            <path
+              refId="Package\DFT ETL Process Implementation.Paths[AddressIDLTE10K]"
+              endId="Package\DFT ETL Process Implementation\Skipped Row Count.Inputs[Row Count Input 1]"
+              name="AddressIDLTE10K"
+              startId="Package\DFT ETL Process Implementation\Conditional Split.Outputs[AddressIDLTE10K]" />
+            <path
+              refId="Package\DFT ETL Process Implementation.Paths[Derived Column Output]"
+              endId="Package\DFT ETL Process Implementation\Conditional Split.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\DFT ETL Process Implementation\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT ETL Process Implementation.Paths[OLE DB Source Error Output]"
+              endId="Package\DFT ETL Process Implementation\Failed RowCount.Inputs[Row Count Input 1]"
+              name="OLE DB Source Error Output"
+              startId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Error Output]" />
+            <path
+              refId="Package\DFT ETL Process Implementation.Paths[OLE DB Source Output]"
+              endId="Package\DFT ETL Process Implementation\Source Row Count.Inputs[Row Count Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\DFT ETL Process Implementation\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT ETL Process Implementation.Paths[Row Count Output 1]"
+              endId="Package\DFT ETL Process Implementation\Derived Column.Inputs[Derived Column Input]"
+              name="Row Count Output 1"
+              startId="Package\DFT ETL Process Implementation\Source Row Count.Outputs[Row Count Output 1]" />
+            <path
+              refId="Package\DFT ETL Process Implementation.Paths[Row Count Output 11]"
+              endId="Package\DFT ETL Process Implementation\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\DFT ETL Process Implementation\Success RowCount.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT SSISAudit tblAudit Logs"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{be9812c9-31e7-468a-a663-4d9c1dfaed5c}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT SSISAudit tblAudit Logs"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT SSISAudit tblAudit Logs\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[ServerName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[ServerName]"
+                      name="ServerName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)@[System::MachineName]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)@[System::MachineName]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[PackageName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[PackageName]"
+                      name="PackageName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)@[System::PackageName]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)@[System::PackageName]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[TaskName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[TaskName]"
+                      name="TaskName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,50,1252)@[System::TaskName]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,50,1252)@[System::TaskName]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[SourceCount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[SourceCount]"
+                      name="SourceCount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::uvSourceCount]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::uvSourceCount]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[SuccessCount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[SuccessCount]"
+                      name="SuccessCount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::uvSuccessCount]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::uvSuccessCount]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[SkippedCount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[SkippedCount]"
+                      name="SkippedCount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::uvSkippedCount]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::uvSkippedCount]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[FailedCount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[FailedCount]"
+                      name="FailedCount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::ErrorCount]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::ErrorCount]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,10,1252)(@[User::ErrorCount] == 0 ? "Success" : "Failure")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,10,1252)(@[User::ErrorCount] == 0 ? "Success" : "Failure")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[OptimizedAuditLog]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastExecuted]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LastExecuted"
+                      externalMetadataColumnId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastExecuted]"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastExecuted]" />
+                    <inputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ServerName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ServerName"
+                      externalMetadataColumnId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ServerName]"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[ServerName]" />
+                    <inputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PackageName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PackageName"
+                      externalMetadataColumnId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PackageName]"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[PackageName]" />
+                    <inputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TaskName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="TaskName"
+                      externalMetadataColumnId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaskName]"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[TaskName]" />
+                    <inputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceCount]"
+                      cachedDataType="i4"
+                      cachedName="SourceCount"
+                      externalMetadataColumnId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceCount]"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[SourceCount]" />
+                    <inputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SuccessCount]"
+                      cachedDataType="i4"
+                      cachedName="SuccessCount"
+                      externalMetadataColumnId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SuccessCount]"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[SuccessCount]" />
+                    <inputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SkippedCount]"
+                      cachedDataType="i4"
+                      cachedName="SkippedCount"
+                      externalMetadataColumnId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SkippedCount]"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[SkippedCount]" />
+                    <inputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FailedCount]"
+                      cachedDataType="i4"
+                      cachedName="FailedCount"
+                      externalMetadataColumnId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FailedCount]"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[FailedCount]" />
+                    <inputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Status"
+                      externalMetadataColumnId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output].Columns[Status]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastExecuted]"
+                      dataType="dbTimeStamp"
+                      name="LastExecuted" />
+                    <externalMetadataColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ServerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ServerName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PackageName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PackageName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TaskName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="TaskName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceCount]"
+                      dataType="i4"
+                      name="SourceCount" />
+                    <externalMetadataColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SuccessCount]"
+                      dataType="i4"
+                      name="SuccessCount" />
+                    <externalMetadataColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SkippedCount]"
+                      dataType="i4"
+                      name="SkippedCount" />
+                    <externalMetadataColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FailedCount]"
+                      dataType="i4"
+                      name="FailedCount" />
+                    <externalMetadataColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Status" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT MAX(LastExecuted) AS LastExecuted
+FROM   OptimizedPersonAddress</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastExecuted]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT SSISAudit tblAudit Logs\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastExecuted]"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\OLE DB Source.Outputs[OLE DB Source Output].Columns[LastExecuted]"
+                      name="LastExecuted"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LastExecuted]"
+                      dataType="dbTimeStamp"
+                      name="LastExecuted" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastExecuted]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LastExecuted]"
+                      name="LastExecuted" />
+                    <outputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT SSISAudit tblAudit Logs\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT SSISAudit tblAudit Logs\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT SSISAudit tblAudit Logs.Paths[Derived Column Output]"
+              endId="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT SSISAudit tblAudit Logs.Paths[OLE DB Source Output]"
+              endId="Package\DFT SSISAudit tblAudit Logs\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT SSISAudit tblAudit Logs\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{8c6f3501-b9ba-417a-89d9-1dbc22da4e5d}"
+      DTS:From="Package\DFT ETL Process Implementation"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT SSISAudit tblAudit Logs"
+      DTS:Value="2" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="235.2,41.6"
+          Id="Package\DFT ETL Process Implementation"
+          TopLeft="354.28571929737,56.9411764276894" />
+        <NodeLayout
+          Size="211.2,41.6"
+          Id="Package\DFT SSISAudit tblAudit Logs"
+          TopLeft="365.000004683222,147.352941980824" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="471.242861990296,98.5411764276894">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,48.8117655531345"
+              Start="0,0"
+              End="0,41.3117655531345">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.3117655531345" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,14.8511952765673,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT ETL Process Implementation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\DFT ETL Process Implementation\Conditional Split"
+          TopLeft="409.785719637968,237.076472540133" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\DFT ETL Process Implementation\Derived Column"
+          TopLeft="405.500005790166,164.911766100095" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\DFT ETL Process Implementation\Failed RowCount"
+          TopLeft="644.785725172685,14.6764707169318" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\DFT ETL Process Implementation\Source Row Count"
+          TopLeft="397.642863310113,89.7941184085133" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\DFT ETL Process Implementation\Skipped Row Count"
+          TopLeft="565.500009025846,324.288235905426" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\DFT ETL Process Implementation\OLE DB Destination"
+          TopLeft="278.357146992975,402.41769364692" />
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\DFT ETL Process Implementation\Success RowCount"
+          TopLeft="299.78571929737,328.135297571004" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\DFT ETL Process Implementation\OLE DB Source"
+          TopLeft="399.07143527391,20.0294119684754" />
+        <EdgeLayout
+          Id="Package\DFT ETL Process Implementation.Paths[OLE DB Source Output]"
+          TopLeft="476.957149292012,61.6294119684754">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,28.1647064400379"
+              Start="0,0"
+              End="0,20.6647064400379">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6647064400379" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT ETL Process Implementation.Paths[AddressIDGT10K]"
+          TopLeft="462.585719637968,278.676472540133">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-79.600000340598,49.4588250308714"
+              Start="0,0"
+              End="-79.600000340598,41.9588250308714">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.0878920125386" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.0878920125386"
+                    Point2="0,20.0878920125386"
+                    Point3="-4,20.0878920125386" />
+                  <mssgle:LineSegment
+                    End="-75.600000340598,20.0878920125386" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-75.600000340598,20.0878920125386"
+                    Point2="-79.600000340598,20.0878920125386"
+                    Point3="-79.600000340598,24.0878920125386" />
+                  <mssgle:LineSegment
+                    End="-79.600000340598,41.9588250308714" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-78.231992357799,25.0878920125386,76.863984375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT ETL Process Implementation.Paths[Row Count Output 11]"
+          TopLeft="382.98571929737,369.735297571004">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-19.4285723043949,32.6823960759164"
+              Start="0,0"
+              End="-19.4285723043949,25.1823960759164">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.3411980379582" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.3411980379582"
+                    Point2="0,16.3411980379582"
+                    Point3="-4,16.3411980379582" />
+                  <mssgle:LineSegment
+                    End="-15.4285723043949,16.3411980379582" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.4285723043949,16.3411980379582"
+                    Point2="-19.4285723043949,16.3411980379582"
+                    Point3="-19.4285723043949,20.3411980379582" />
+                  <mssgle:LineSegment
+                    End="-19.4285723043949,25.1823960759164" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT ETL Process Implementation.Paths[AddressIDLTE10K]"
+          TopLeft="511.385719637968,278.676472540133">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="139.314289387878,45.6117633652935"
+              Start="0,0"
+              End="139.314289387878,38.1117633652935">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.5253931206731" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.5253931206731"
+                    Point2="0,18.5253931206731"
+                    Point3="4,18.5253931206731" />
+                  <mssgle:LineSegment
+                    End="135.314289387878,18.5253931206731" />
+                  <mssgle:CubicBezierSegment
+                    Point1="135.314289387878,18.5253931206731"
+                    Point2="139.314289387878,18.5253931206731"
+                    Point3="139.314289387878,22.5253931206731" />
+                  <mssgle:LineSegment
+                    End="139.314289387878,38.1117633652935" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="29.265152506439,23.5253931206731,80.783984375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT ETL Process Implementation.Paths[Derived Column Output]"
+          TopLeft="484.442862714067,206.511766100095">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,30.5647064400378"
+              Start="0,0"
+              End="0,23.0647064400378">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.0647064400378" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT ETL Process Implementation.Paths[Row Count Output 1]"
+          TopLeft="480.971434550139,131.394118408513">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,33.5176476915815"
+              Start="0,0"
+              End="0,26.0176476915815">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0176476915815" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT ETL Process Implementation.Paths[OLE DB Source Error Output]"
+          TopLeft="548.67143527391,38.1529413427036">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="96.114289898775,0"
+              Start="0,0"
+              End="88.614289898775,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="88.614289898775,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-19.1267613006125,5,126.8678125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT ETL Process Implementation\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT ETL Process Implementation\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT SSISAudit tblAudit Logs">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination"
+          TopLeft="514.5,204.1" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\DFT SSISAudit tblAudit Logs\Derived Column"
+          TopLeft="521.5,120.5" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\DFT SSISAudit tblAudit Logs\OLE DB Source"
+          TopLeft="527.5,34.5" />
+        <EdgeLayout
+          Id="Package\DFT SSISAudit tblAudit Logs.Paths[OLE DB Source Output]"
+          TopLeft="600.1,76.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,44.4"
+              Start="0,0"
+              End="0,36.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT SSISAudit tblAudit Logs.Paths[Derived Column Output]"
+          TopLeft="607.8,162.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT SSISAudit tblAudit Logs\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT SSISAudit tblAudit Logs\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

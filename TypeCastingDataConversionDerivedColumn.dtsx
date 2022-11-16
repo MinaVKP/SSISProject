@@ -1,0 +1,1195 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/8/2022 12:02:29 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-34FHAUTJ"
+  DTS:CreatorName="LAPTOP-34FHAUTJ\priya"
+  DTS:DTSID="{4B7A96FE-B684-4FAF-BC9C-C714C4115BC5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="TypeCasting"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{961ECA66-BFD4-47C2-B2AF-1323045E7DF7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.AdventureWorks2019]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9194874D-EF5C-4191-8B4D-A03A5B97A57E}"
+      DTS:ObjectName="LAPTOP-34FHAUTJ\MSSQLSERVER01.AdventureWorks2019">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-34FHAUTJ\MSSQLSERVER01;Initial Catalog=AdventureWorks2019;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9366D43D-8803-4957-AF2C-2F92641E33EC}"
+      DTS:ObjectName="LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-34FHAUTJ\MSSQLSERVER01;Initial Catalog=DestinationDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{AF558CD6-CF37-4E79-8A00-63D238207D13}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Typecasting using Data Conversion and Dervied Column Transformations"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Inputs[Data Conversion Input].Columns[NationalIDNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="NationalIDNumber"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[NationalIDNumber]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Inputs[Data Conversion Input].Columns[LoginID]"
+                      cachedDataType="wstr"
+                      cachedLength="256"
+                      cachedName="LoginID"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[LoginID]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Inputs[Data Conversion Input].Columns[JobTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="JobTitle"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[JobTitle]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Inputs[Data Conversion Input].Columns[MaritalStatus]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="MaritalStatus"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[MaritalStatus]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Inputs[Data Conversion Input].Columns[Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Gender"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[Gender]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Output].Columns[NationalIDNumber_DC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Output].Columns[NationalIDNumber_DC]"
+                      name="NationalIDNumber_DC"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[NationalIDNumber]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Output].Columns[LoginID_DC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="256"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Output].Columns[LoginID_DC]"
+                      name="LoginID_DC"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[LoginID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Output].Columns[JobTitle_DC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Output].Columns[JobTitle_DC]"
+                      name="JobTitle_DC"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[JobTitle]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Output].Columns[MaritalStatus_DC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Output].Columns[MaritalStatus_DC]"
+                      name="MaritalStatus_DC"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[MaritalStatus]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Output].Columns[Gender_DC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Output].Columns[Gender_DC]"
+                      name="Gender_DC"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[Gender]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Derived Column.Outputs[Derived Column Output].Columns[LastExecuted]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Derived Column.Outputs[Derived Column Output].Columns[LastExecuted]"
+                      name="LastExecuted"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DATE)[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DATE)GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[DimEmployeeDest]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[BusinessEntityID]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OrganizationNode]"
+                      cachedDataType="bytes"
+                      cachedLength="892"
+                      cachedName="OrganizationNode"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrganizationNode]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[OrganizationNode]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OrganizationLevel]"
+                      cachedDataType="i2"
+                      cachedName="OrganizationLevel"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrganizationLevel]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[OrganizationLevel]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BirthDate]"
+                      cachedDataType="dbDate"
+                      cachedName="BirthDate"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[BirthDate]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[HireDate]"
+                      cachedDataType="dbDate"
+                      cachedName="HireDate"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HireDate]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[HireDate]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SalariedFlag]"
+                      cachedDataType="bool"
+                      cachedName="SalariedFlag"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalariedFlag]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[SalariedFlag]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VacationHours]"
+                      cachedDataType="i2"
+                      cachedName="VacationHours"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VacationHours]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[VacationHours]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SickLeaveHours]"
+                      cachedDataType="i2"
+                      cachedName="SickLeaveHours"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SickLeaveHours]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[SickLeaveHours]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CurrentFlag]"
+                      cachedDataType="bool"
+                      cachedName="CurrentFlag"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentFlag]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[CurrentFlag]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[rowguid]"
+                      cachedDataType="guid"
+                      cachedName="rowguid"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rowguid]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[rowguid]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ModifiedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[ModifiedDate]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NationalIDNumber_DC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="NationalIDNumber_DC"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NationalIDNumber]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Output].Columns[NationalIDNumber_DC]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LoginID_DC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="256"
+                      cachedName="LoginID_DC"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoginID]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Output].Columns[LoginID_DC]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[JobTitle_DC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="JobTitle_DC"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[JobTitle]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Output].Columns[JobTitle_DC]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MaritalStatus_DC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="MaritalStatus_DC"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaritalStatus]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Output].Columns[MaritalStatus_DC]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Gender_DC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="Gender_DC"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Output].Columns[Gender_DC]" />
+                    <inputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastExecuted]"
+                      cachedDataType="date"
+                      cachedName="LastExecuted"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastExecuted]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Derived Column.Outputs[Derived Column Output].Columns[LastExecuted]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NationalIDNumber]"
+                      dataType="wstr"
+                      length="15"
+                      name="NationalIDNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoginID]"
+                      dataType="wstr"
+                      length="256"
+                      name="LoginID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrganizationNode]"
+                      dataType="bytes"
+                      length="892"
+                      name="OrganizationNode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrganizationLevel]"
+                      dataType="i2"
+                      name="OrganizationLevel" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[JobTitle]"
+                      dataType="wstr"
+                      length="50"
+                      name="JobTitle" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
+                      dataType="dbDate"
+                      name="BirthDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaritalStatus]"
+                      dataType="wstr"
+                      length="1"
+                      name="MaritalStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HireDate]"
+                      dataType="dbDate"
+                      name="HireDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalariedFlag]"
+                      dataType="bool"
+                      name="SalariedFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VacationHours]"
+                      dataType="i2"
+                      name="VacationHours" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SickLeaveHours]"
+                      dataType="i2"
+                      name="SickLeaveHours" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentFlag]"
+                      dataType="bool"
+                      name="CurrentFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastExecuted]"
+                      dataType="dbTimeStamp"
+                      name="LastExecuted" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NationalIDNumber_DC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="NationalIDNumber_DC" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoginID_DC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="256"
+                      name="LoginID_DC" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[JobTitle_DC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="JobTitle_DC" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaritalStatus_DC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="MaritalStatus_DC" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender_DC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Gender_DC" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Reads Data From Adventure2019 DB"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[HumanResources].[Employee]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.AdventureWorks2019]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.AdventureWorks2019]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[NationalIDNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[NationalIDNumber]"
+                      length="15"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[NationalIDNumber]"
+                      name="NationalIDNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[LoginID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[LoginID]"
+                      length="256"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[LoginID]"
+                      name="LoginID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[OrganizationNode]"
+                      dataType="bytes"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[OrganizationNode]"
+                      length="892"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[OrganizationNode]"
+                      name="OrganizationNode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[OrganizationLevel]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[OrganizationLevel]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[OrganizationLevel]"
+                      name="OrganizationLevel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[JobTitle]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[JobTitle]"
+                      length="50"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[JobTitle]"
+                      name="JobTitle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[BirthDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[BirthDate]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[BirthDate]"
+                      name="BirthDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[MaritalStatus]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[MaritalStatus]"
+                      length="1"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[MaritalStatus]"
+                      name="MaritalStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      length="1"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[HireDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[HireDate]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[HireDate]"
+                      name="HireDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[SalariedFlag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[SalariedFlag]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[SalariedFlag]"
+                      name="SalariedFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[VacationHours]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[VacationHours]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[VacationHours]"
+                      name="VacationHours"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[SickLeaveHours]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[SickLeaveHours]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[SickLeaveHours]"
+                      name="SickLeaveHours"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[CurrentFlag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[CurrentFlag]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[CurrentFlag]"
+                      name="CurrentFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[rowguid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[rowguid]"
+                      name="rowguid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[NationalIDNumber]"
+                      dataType="wstr"
+                      length="15"
+                      name="NationalIDNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[LoginID]"
+                      dataType="wstr"
+                      length="256"
+                      name="LoginID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[OrganizationNode]"
+                      dataType="bytes"
+                      length="892"
+                      name="OrganizationNode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[OrganizationLevel]"
+                      dataType="i2"
+                      name="OrganizationLevel" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[JobTitle]"
+                      dataType="wstr"
+                      length="50"
+                      name="JobTitle" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[BirthDate]"
+                      dataType="dbDate"
+                      name="BirthDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[MaritalStatus]"
+                      dataType="wstr"
+                      length="1"
+                      name="MaritalStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[HireDate]"
+                      dataType="dbDate"
+                      name="HireDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[SalariedFlag]"
+                      dataType="bool"
+                      name="SalariedFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[VacationHours]"
+                      dataType="i2"
+                      name="VacationHours" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[SickLeaveHours]"
+                      dataType="i2"
+                      name="SickLeaveHours" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[CurrentFlag]"
+                      dataType="bool"
+                      name="CurrentFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                      dataType="guid"
+                      name="rowguid" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[BusinessEntityID]"
+                      name="BusinessEntityID" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[NationalIDNumber]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[NationalIDNumber]"
+                      name="NationalIDNumber" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[LoginID]"
+                      dataType="wstr"
+                      length="256"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[LoginID]"
+                      name="LoginID" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[OrganizationNode]"
+                      dataType="bytes"
+                      length="892"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[OrganizationNode]"
+                      name="OrganizationNode" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[OrganizationLevel]"
+                      dataType="i2"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[OrganizationLevel]"
+                      name="OrganizationLevel" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[JobTitle]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[JobTitle]"
+                      name="JobTitle" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[BirthDate]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[BirthDate]"
+                      name="BirthDate" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[MaritalStatus]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[MaritalStatus]"
+                      name="MaritalStatus" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[Gender]"
+                      name="Gender" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[HireDate]"
+                      dataType="dbDate"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[HireDate]"
+                      name="HireDate" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[SalariedFlag]"
+                      dataType="bool"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[SalariedFlag]"
+                      name="SalariedFlag" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[VacationHours]"
+                      dataType="i2"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[VacationHours]"
+                      name="VacationHours" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[SickLeaveHours]"
+                      dataType="i2"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[SickLeaveHours]"
+                      name="SickLeaveHours" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[CurrentFlag]"
+                      dataType="bool"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[CurrentFlag]"
+                      name="CurrentFlag" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                      dataType="guid"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                      name="rowguid" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations.Paths[Data Conversion Output]"
+              endId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Derived Column.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations.Paths[Derived Column Output]"
+              endId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations.Paths[OLE DB Source Output]"
+              endId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="444.8,41.6"
+          Id="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations"
+          TopLeft="251.785716742886,63.6176478739016" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="251.2,41.6"
+          Id="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB"
+          TopLeft="324.785719723118,29.2058826854072" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Data Conversion"
+          TopLeft="374.785720574613,103.541334531291" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination"
+          TopLeft="371.928577157916,281.735297571004" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Derived Column"
+          TopLeft="375.500005790166,199.306041335969" />
+        <EdgeLayout
+          Id="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations.Paths[OLE DB Source Output]"
+          TopLeft="451.385720148865,70.8058826854072">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.7354518458841"
+              Start="0,0"
+              End="0,25.2354518458841">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.2354518458841" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations.Paths[Derived Column Output]"
+          TopLeft="454.514291474041,240.906041335969">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.8292562350346"
+              Start="0,0"
+              End="0,33.3292562350346">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.3292562350346" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations.Paths[Data Conversion Output]"
+          TopLeft="452.142863182389,145.141334531291">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54.1647068046785"
+              Start="0,0"
+              End="0,46.6647068046785">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.6647068046785" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\Reads Data From Adventure2019 DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Typecasting using Data Conversion and Dervied Column Transformations\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

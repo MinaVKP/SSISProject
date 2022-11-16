@@ -1,0 +1,815 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/16/2022 2:04:58 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-34FHAUTJ"
+  DTS:CreatorName="LAPTOP-34FHAUTJ\priya"
+  DTS:DTSID="{73F26516-E392-4978-8CEE-114530D32373}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{9C397C7E-E355-4092-826A-B1888764142A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FFConnectionManagerStuDet]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{34FA51D2-7E66-4EFA-9154-6838BF0E4756}"
+      DTS:ObjectName="FFConnectionManagerStuDet">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\priya\MSBI\Sample CSV Files\Student_Details.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SNo"
+              DTS:DTSID="{8CF6DD00-8D49-4031-A0CF-80292ED3985C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{C0827493-EEF6-4234-B31E-8B5C775E4F20}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Degree"
+              DTS:DTSID="{BC20EEF6-C00A-4340-BC6D-F7F261F2A543}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Marks"
+              DTS:DTSID="{B9557772-ADAB-4C18-9341-9E180DCF13E7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Fee"
+              DTS:DTSID="{8018EAA5-861B-4DD4-A69C-272D9E51BEE5}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{01A54784-6251-4D00-8015-7377CECFD959}"
+      DTS:ObjectName="LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-34FHAUTJ\MSSQLSERVER01;Initial Catalog=DestinationDB;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Sorts Data Student CSV"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{966CA698-C039-4FA9-B246-367FE60F2579}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Sorts Data Student CSV"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Sorts Data Student CSV\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Sorts Data Student CSV\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FFConnectionManagerStuDet]"
+                  connectionManagerRefId="Package.ConnectionManagers[FFConnectionManagerStuDet]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[SNo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SNo]"
+                      lineageId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[SNo]"
+                      name="SNo"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Degree]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Degree]"
+                      length="50"
+                      lineageId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Degree]"
+                      name="Degree"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Marks]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Marks]"
+                      lineageId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Marks]"
+                      name="Marks"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Fee]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Fee]"
+                      length="50"
+                      lineageId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Fee]"
+                      name="Fee"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SNo]"
+                      dataType="i4"
+                      name="SNo" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Degree]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Degree" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Marks]"
+                      dataType="r4"
+                      name="Marks" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Fee]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Fee" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Sorts Data Student CSV\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[SortedStudent_Details]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-34FHAUTJ\MSSQLSERVER01.DestinationDB]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SNo]"
+                      cachedDataType="i4"
+                      cachedName="SNo"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SNo]"
+                      lineageId="Package\DFT Sorts Data Student CSV\Sort.Outputs[Sort Output].Columns[SNo]" />
+                    <inputColumn
+                      refId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Name"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      lineageId="Package\DFT Sorts Data Student CSV\Sort.Outputs[Sort Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Degree]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Degree"
+                      cachedSortKeyPosition="3"
+                      externalMetadataColumnId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Degree]"
+                      lineageId="Package\DFT Sorts Data Student CSV\Sort.Outputs[Sort Output].Columns[Degree]" />
+                    <inputColumn
+                      refId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Marks]"
+                      cachedDataType="r4"
+                      cachedName="Marks"
+                      cachedSortKeyPosition="4"
+                      externalMetadataColumnId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Marks]"
+                      lineageId="Package\DFT Sorts Data Student CSV\Sort.Outputs[Sort Output].Columns[Marks]" />
+                    <inputColumn
+                      refId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Fee]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Fee"
+                      cachedSortKeyPosition="5"
+                      externalMetadataColumnId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Fee]"
+                      lineageId="Package\DFT Sorts Data Student CSV\Sort.Outputs[Sort Output].Columns[Fee]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SNo]"
+                      dataType="i4"
+                      name="SNo" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Degree]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Degree" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Marks]"
+                      dataType="r4"
+                      name="Marks" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Fee]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Fee" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Sorts Data Student CSV\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Sorts Data Student CSV\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Sort.Inputs[Sort Input].Columns[SNo]"
+                      cachedDataType="i4"
+                      cachedName="SNo"
+                      lineageId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[SNo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Sort.Inputs[Sort Input].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Name"
+                      lineageId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Sort.Inputs[Sort Input].Columns[Degree]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Degree"
+                      lineageId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Degree]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Sort.Inputs[Sort Input].Columns[Marks]"
+                      cachedDataType="r4"
+                      cachedName="Marks"
+                      lineageId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Marks]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Sort.Inputs[Sort Input].Columns[Fee]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Fee"
+                      lineageId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Fee]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">5</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Sorts Data Student CSV\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Sort.Outputs[Sort Output].Columns[SNo]"
+                      dataType="i4"
+                      lineageId="Package\DFT Sorts Data Student CSV\Sort.Outputs[Sort Output].Columns[SNo]"
+                      name="SNo"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[SNo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Sort.Outputs[Sort Output].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT Sorts Data Student CSV\Sort.Outputs[Sort Output].Columns[Name]"
+                      name="Name"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Sort.Outputs[Sort Output].Columns[Degree]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT Sorts Data Student CSV\Sort.Outputs[Sort Output].Columns[Degree]"
+                      name="Degree"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Degree]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Sort.Outputs[Sort Output].Columns[Marks]"
+                      dataType="r4"
+                      lineageId="Package\DFT Sorts Data Student CSV\Sort.Outputs[Sort Output].Columns[Marks]"
+                      name="Marks"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Marks]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Sorts Data Student CSV\Sort.Outputs[Sort Output].Columns[Fee]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\DFT Sorts Data Student CSV\Sort.Outputs[Sort Output].Columns[Fee]"
+                      name="Fee"
+                      sortKeyPosition="5">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output].Columns[Fee]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Sorts Data Student CSV.Paths[Flat File Source Output]"
+              endId="Package\DFT Sorts Data Student CSV\Sort.Inputs[Sort Input]"
+              name="Flat File Source Output"
+              startId="Package\DFT Sorts Data Student CSV\Flat File Source.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\DFT Sorts Data Student CSV.Paths[Sort Output]"
+              endId="Package\DFT Sorts Data Student CSV\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Sort Output"
+              startId="Package\DFT Sorts Data Student CSV\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="212,41.6"
+          Id="Package\DFT Sorts Data Student CSV"
+          TopLeft="358.357148866264,60.558824301591" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT Sorts Data Student CSV">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\DFT Sorts Data Student CSV\Flat File Source"
+          TopLeft="299.78571929737,26.9117650061743" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\DFT Sorts Data Student CSV\Sort"
+          TopLeft="337.642862288319,111.970589307765" />
+        <EdgeLayout
+          Id="Package\DFT Sorts Data Student CSV.Paths[Flat File Source Output]"
+          TopLeft="374.98571929737,68.5117650061743">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.4571429909493,43.458824301591"
+              Start="0,0"
+              End="11.4571429909493,35.958824301591">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.7294121507955" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.7294121507955"
+                    Point2="0,21.7294121507955"
+                    Point3="4,21.7294121507955" />
+                  <mssgle:LineSegment
+                    End="7.45714299094925,21.7294121507955" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.45714299094925,21.7294121507955"
+                    Point2="11.4571429909493,21.7294121507955"
+                    Point3="11.4571429909493,25.7294121507955" />
+                  <mssgle:LineSegment
+                    End="11.4571429909493,35.958824301591" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\DFT Sorts Data Student CSV\OLE DB Destination"
+          TopLeft="289.357146737527,184.970589490085" />
+        <EdgeLayout
+          Id="Package\DFT Sorts Data Student CSV.Paths[Sort Output]"
+          TopLeft="386.442862288319,153.570589307765">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-11.8857155507924,31.4000001823201"
+              Start="0,0"
+              End="-11.8857155507924,23.9000001823201">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.7000000911601" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.7000000911601"
+                    Point2="0,15.7000000911601"
+                    Point3="-4,15.7000000911601" />
+                  <mssgle:LineSegment
+                    End="-7.88571555079244,15.7000000911601" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-7.88571555079244,15.7000000911601"
+                    Point2="-11.8857155507924,15.7000000911601"
+                    Point3="-11.8857155507924,19.7000000911601" />
+                  <mssgle:LineSegment
+                    End="-11.8857155507924,23.9000001823201" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Sorts Data Student CSV\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
